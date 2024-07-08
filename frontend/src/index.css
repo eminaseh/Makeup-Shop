@@ -1,0 +1,589 @@
+html{
+  font-size: 62.5%; /*62.5% zbog zadane veličine pretreživača*/
+  box-sizing: border-box;
+}
+body{
+  font: 1.6rem Helvetica;
+  height: 100vh; /*viewport height*/
+  margin: 0;   
+}
+#root{
+  height: 100%;
+}
+.grid-kontejner{
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 10rem 1fr 10rem;
+  height: 100%;
+}
+/* Header ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.header{
+  grid-area: header;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0rem 0rem 0.4rem 0rem rgba(0,0,0,0.2);
+  top: 0;
+  width: 100%;
+}
+.logo a{
+  color: black;
+  font-weight: bold;
+  font-size: 3rem;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.meni a{
+  color: black;
+  text-decoration: none;
+  padding: 1rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.meni a:hover{
+  color: red;
+}
+.logo button{
+  font-size: 3rem;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+}
+.logo button:hover{
+  color: red;
+}
+/* Main /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.main{
+  grid-area: main;
+}
+/* Footer //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.footer{
+  grid-area: footer;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.horizontalna_lista_footer{
+  list-style-type: none;
+  padding-left: 1rem;
+}
+.horizontalna_lista_footer li{
+  display: inline-flex; 
+  padding: 0.5rem;  
+}
+.ikonice{
+  width: 3rem;
+  height: 3rem;
+}
+.povratak{
+  width: 3rem;
+  height: 3rem;
+  margin-right: 2rem;
+  transition: 0.3s;  
+}
+/* Sidebar(meni za kategorije) //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.sidebar{
+  position: fixed;
+  transform: translateX(-30rem);
+  width: 30rem;
+  background-color: black;
+  color: white;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.sidebar.open{
+  transform: translateX(0);
+}
+.zatvori1 {
+  text-align: center;
+  margin: 1.5rem 0 0.75rem 0;
+  position: relative;
+}
+.zatvori {
+  position: absolute;
+  right: 2.8rem;
+  top: 0;
+  color: white;
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+.zatvori:hover,
+.zatvori:focus {
+  color: red;
+  cursor: pointer;
+}
+.kategorije{
+  padding: 1.7rem;
+  text-align: left;
+  font-size: 2.5rem;
+}
+.kategorije-lista{
+  list-style-type: none;
+}
+.kategorije-lista li{
+  text-decoration: none;
+  text-align: left;
+  font-size: 2rem;
+  padding: 1rem;  
+}
+.kategorije-lista a{
+  color: white;
+}
+.kategorije-lista a:hover{
+  color: red;
+}
+@media screen and (max-width: 700px) {
+.sidebar.open{
+   width: 100%;
+}
+.kategorije-lista li, .kategorije{
+  text-align: center;
+  justify-content: center;     
+}
+}
+/* Početna slika ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.pocetna-slika{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  padding-bottom: 5rem;
+}
+/* Proizvodi ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: red;
+}
+.proizvodi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.proizvodi li{
+  list-style-type: none;
+  padding: 0;
+  flex: 0 1 47rem;
+  margin: 1rem;
+  height: 55rem;
+  border-bottom: lightgrey;
+  border-bottom-style: solid;
+  border-width: 0.2rem;
+}
+.proizvod{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+}
+.slika-proizvoda{
+  max-width: 39rem;
+  max-height: 39rem;
+}
+.naziv-proizvoda a{
+  color: black;
+}
+.naziv-proizvoda a:hover{
+  color: red;
+}
+.naziv-proizvoda{
+  font-size: 2rem;
+  color: black;
+  font-weight: bold;
+}
+.brend-proizvoda{
+  font-size: 1.3rem;
+  color: gray;
+}
+.cijena-proizvoda{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.ocjena-proizvoda{
+  margin-bottom: 1rem;
+}
+/* Proizvodi naslov /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.proizvodi-naslov {
+  text-align:center;
+  display: grid;
+  grid-template-columns: 200px max-content 200px;
+  grid-template-rows: 20px 0;
+  grid-gap: 20px;
+  justify-content:center;
+  margin-top: 2rem;
+}
+.proizvodi-naslov:after, .proizvodi-naslov:before {
+  content: " ";
+  display: block;
+  border-bottom: 3px solid red;
+}
+/* Detalji proizvoda ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.detalji{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.detalji-slika{
+  flex: 2 1 60rem;
+  text-align: center;
+}
+.detalji-slika img{
+  max-width: 60rem;
+  width: 100%;
+}
+.detalji-info{
+  flex: 2 1 60rem; 
+  margin: 1rem;
+}
+.detalji-info ul{
+  list-style-type: none;
+  padding: 0;
+}
+.detalji-info li{
+  margin: 2rem;
+}
+.nazad{
+  padding: 2rem;
+  font-weight: bold;
+}
+.nazad a:link,.nazad a:visited {
+  background-color: black;
+  color: white;
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 0.1rem black;
+}
+.nazad a:hover {
+  background-color: white;
+  color: black;
+  border: solid 0.1rem black;
+}
+.korpa-dugme{
+  padding: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  border: solid 0.1rem black;
+  font-size: 1.5rem;
+}
+.kolicina select {
+  background-color: white;
+  color: black;
+  padding: 0.5rem;
+  width: 10rem;
+  border: solid 0.1rem black;
+  font-size: 2rem;
+  outline: none; 
+}
+.opis-proizvoda{
+  font-size: 1.7rem;
+  color: black;
+  font-weight: lighter;
+  padding: 1rem; 
+}
+/* Učitavanje ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.ucitavanje {
+ color: red;
+ font-size: 3rem;
+ justify-content: center;
+ text-align: center;
+ padding-top: 25rem;
+}
+/* Korpa ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.korpa{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: flex-start;
+}
+.korpa-lista{
+  flex: 3 1 60rem;
+  padding: 2rem;
+}
+.korpa-akcija{
+  flex: 1 1 20rem;
+  padding: 2.8rem;
+  margin-top: 2.5rem;
+  text-align: left;
+  font-size: 2rem;
+}
+.korpa-lista-artikli{
+  padding: 0;
+  list-style-type: none;
+  padding: 1rem;
+}
+.korpa-lista-artikli li{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+.korpa-lista-artikli li img{
+  max-width: 10rem;
+  max-height: 10rem;
+}
+.korpa-lista-artikli li:first-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.korpa-slika{
+  flex: 1 1;
+}
+.korpa-naziv{
+  flex: 8 1;
+}
+.korpa-naziv a{
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+}
+.korpa-naziv a:hover{
+  color: red;
+}
+.korpa-cijena{
+  flex: 1 1;
+  font-size: 2.5rem;
+  text-align: right;
+}
+.dugme-ukloni{
+  background-color: white;
+  border: solid 0.1rem black;
+  color: black;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
+  margin: 2rem 1rem;
+  cursor: pointer;
+}
+.dugme-ukloni:hover {
+  background-color: black;
+  color: white;
+  border: solid 0.1rem black;
+}
+.korpa-kolicina{
+  padding: 1rem;
+}
+.korpa-kolicina select{
+  background-color: white;
+  color: black;
+  padding: 0.2rem;
+  width: 5rem;
+  border: solid 0.1rem black;
+  font-size: 1.5rem;
+  outline: none; 
+  margin-left: 0.2rem; 
+}
+.korpa-akcija-info{
+  font-size: 2rem;
+}
+.korpa-akcija-naslov{
+  padding: 1rem;
+  font-weight: bold;
+}
+.korpa-akcija-br-proizvoda{
+  padding: 1rem;
+  font-weight: bold;
+}
+.korpa-akcija-total{
+  padding: 1rem;
+  font-weight: bold;
+}
+.korpa-prazna{
+  padding: 2rem;
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+}
+/* Forme //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.forma {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+.forma-lista{
+  display: flex;
+  flex-direction: column;
+  width: 65rem;
+  padding: 1.5rem;
+  list-style-type: none;
+  box-shadow: 0rem 0rem 0.4rem 0rem rgba(0,0,0,0.2);
+}
+.forma-lista li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+input {
+  padding: 1.5rem;
+  border: 0.1rem #c0c0c0 solid;
+  font-size: 2rem;
+}
+label{
+  font-weight: bold;
+}
+textarea{
+  padding: 1rem;
+  border: 0.1rem #c0c0c0 solid;
+  font-size: 2rem;
+  height: 10rem;
+}
+.registracija-dugme{
+  padding: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: #dddddd;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  border: solid 0.1rem #dddddd;
+  font-size: 1.5rem;
+  
+}
+.registracija-dugme:hover {
+  color: black;
+  background-color: #dddddd;
+  border: solid 0.1rem black;
+}
+/* Proizvodi tabela /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.proizvod-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.proizvodi-sadrzaj-margine {
+  margin: 2rem;
+}
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+td{
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+.dodaj-proizvod-dugme{
+  background-color: black;
+  border: solid 0.1rem black;
+  color: white;
+  padding: 1.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.tabela-dugme{
+  color: white;
+  padding: 1.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.tabela-dugme-uredi{
+  background-color: gray;
+  border: solid 0.1rem gray;
+}
+.tabela-dugme-izbrisi{
+  background-color: red;
+  border: solid 0.1rem red;
+}
+/* Narudžba koraci ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.narudzba-koraci {
+  display: flex;
+  justify-content: space-between;
+  width: 80rem;
+  margin: 2.5rem auto;
+}
+.narudzba-koraci > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1 1;
+  padding-top: 1rem;
+}
+.narudzba-koraci > div.active {
+  border-top: 0.3rem red solid;
+  color: red;
+}
+/*Narudžba //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.narudzba {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.narudzba-info {
+  flex: 3 1 60rem;
+  box-shadow: 0rem 0rem 0.3rem 0rem rgba(0,0,0,0.2);
+  margin:1rem;
+}
+.narudzba-akcija {
+  flex: 1 1 20rem;
+  padding: 1rem;
+  border: 0.1rem solid lightgray;
+  background-color: #f2f2f2;
+  margin:1rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+.narudzba-akcija li{
+  padding: 1rem;
+}
+.narudzba-info > div {
+  padding: 1rem;
+  margin: 1rem;
+}
+.narudzba-akcija > ul {
+  padding: 0;
+  list-style-type: none;
+}
+.narudzba-akcija > ul > li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.total{
+font-weight: bolder;
+}
+.naruci-dugme{
+  background-color: red;
+  border: solid 0.1rem red;
+}
+.zvijezda{
+  color: orange;
+}
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
